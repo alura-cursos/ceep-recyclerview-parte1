@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.List;
 
 import br.com.alura.ceep.R;
@@ -34,17 +35,23 @@ public class ListaNotasActivity extends AppCompatActivity {
                 Intent iniciaFormularioNota =
                         new Intent(ListaNotasActivity.this,
                                 FormularioNotaActivity.class);
-                startActivity(iniciaFormularioNota);
+                startActivityForResult(iniciaFormularioNota, 1);
             }
         });
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 1 && resultCode == 2 && data.hasExtra("nota")){
+            Nota notaRecebida = (Nota) data.getSerializableExtra("nota");
+            new NotaDAO().insere(notaRecebida);
+            adapter.adiciona(notaRecebida);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     protected void onResume() {
-        NotaDAO dao = new NotaDAO();
-        todasNotas.clear();
-        todasNotas.addAll(dao.todos());
-        adapter.notifyDataSetChanged();
         super.onResume();
     }
 
