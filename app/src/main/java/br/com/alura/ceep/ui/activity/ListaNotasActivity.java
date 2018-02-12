@@ -59,7 +59,7 @@ public class ListaNotasActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(ehResultadoComNota(requestCode, resultCode, data)){
-            Nota notaRecebida = (Nota) data.getSerializableExtra("nota");
+            Nota notaRecebida = (Nota) data.getSerializableExtra(CHAVE_NOTA);
             adiciona(notaRecebida);
         }
         super.onActivityResult(requestCode, resultCode, data);
