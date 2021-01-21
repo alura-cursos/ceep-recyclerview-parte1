@@ -2,13 +2,13 @@ package br.com.alura.ceep.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.TextView;
 
-import java.io.Serializable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 import br.com.alura.ceep.R;

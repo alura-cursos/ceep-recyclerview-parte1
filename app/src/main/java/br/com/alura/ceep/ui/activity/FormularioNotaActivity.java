@@ -1,15 +1,14 @@
 package br.com.alura.ceep.ui.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import br.com.alura.ceep.R;
-import br.com.alura.ceep.dao.NotaDAO;
 import br.com.alura.ceep.model.Nota;
 
 public class FormularioNotaActivity extends AppCompatActivity {
@@ -28,7 +27,7 @@ public class FormularioNotaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.menu_formulario_nota_ic_salva){
+        if (item.getItemId() == R.id.menu_formulario_nota_ic_salva) {
             EditText titulo = findViewById(R.id.formulario_nota_titulo);
             EditText descricao = findViewById(R.id.formulario_nota_descricao);
             Nota notaCriada = new Nota(titulo.getText().toString(),
